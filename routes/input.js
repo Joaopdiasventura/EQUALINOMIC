@@ -54,9 +54,9 @@ input.get("/empresas", async (req, res) => {
             }
 
             Media.find().then((medias) => {
-                for (let i = 0, i <= medias.length, i++){
-                    if(medias[i].empresa == empresa._id){
-                        console.log(medias[i])
+                for (let f = 0, f <= medias.length, f++){
+                    if(medias[f].empresa == empresa._id){
+                        console.log(medias[f])
                     }
                 }
             })
