@@ -61,7 +61,7 @@ input.get("/empresas", async (req, res) => {
                                 from: 'jpplayrucoy@gmail.com',
                                 to: 'joaopdiasventura@gmail.com',
                                 subject: 'Empresa Com Média Baixa',
-                                text: `Empresa: ${empresa.nome}, Média: ${parseFloat(medias[f].valor)}, Telefone: ${empresa.telefone}, E-Mail: ${empresa.email}, Endereço: ${empresa.endereco}, ID: ${empresa._id}`,
+                                text: `Empresa: ${empresa.nome}, ${empresa.media}, Telefone: ${empresa.telefone}, E-Mail: ${empresa.email}, Endereço: ${empresa.endereco}, ID: ${empresa._id}`,
                             };
         
                             await transporter.sendMail(mailOptions, (error, info) => {
