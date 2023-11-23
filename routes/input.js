@@ -52,7 +52,10 @@ input.get("/empresas", async (req, res) => {
                 empresa.media = `Nenhuma média registrada...`;
                 await empresa.save();
             }
-        
+
+            Media.find().then((medias) => {
+                console.log(medias)
+            })
             
             const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
 
