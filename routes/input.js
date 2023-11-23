@@ -55,7 +55,7 @@ input.get("/empresas", async (req, res) => {
 
             Media.find().then((medias) => {
                 for (let f = 0; f <= medias.length; f++){
-                    console.log(medias[f])
+                    console.log(medias[f]);
                 }
             })
             
