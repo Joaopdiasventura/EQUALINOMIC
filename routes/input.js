@@ -24,15 +24,14 @@ input.get("/", (req, res) => {
 
 input.get("/empresas", async (req, res) => {
     try {
-        
         const empresas = await Empresa.find().sort({ date: "desc" });
 
         for (const empresa of empresas) {
-            
-            Media.deleteMany({ empresa: empresa._id }).then(() => {
-                console.log("deletado");
-            });
-            const funcionarios = await Funcionario.find().sort({ date: "desc" });
+            // Deletar todas as mídias associadas à empresa
+            await Media.deleteMany({ empresa: empresa._id });
+
+            // Encontrar todos os funcionários associados à empresa
+            const funcionarios = await Funcionario.find({ empresa: empresa._id }).sort({ date: "desc" });
 
             let quantidade = 0;
             for (const funcionario of funcionarios) {
@@ -41,10 +40,9 @@ input.get("/empresas", async (req, res) => {
                 }
             }
 
-            if (quantidade === funcionarios.length && funcionarios.length != 0) {
+            if (quantidade === funcionarios.length && funcionarios.length !== 0) {
                 await enviar_media(empresa._id);
-                if (empresa.media == "Média de NaN pontos de qualidade") {
-
+                if (empresa.media === "Média de NaN pontos de qualidade") {
                     empresa.media = `Nenhuma média registrada...`;
                     await empresa.save();
                 }
@@ -53,14 +51,13 @@ input.get("/empresas", async (req, res) => {
                 await empresa.save();
             }
         
-            
-            const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
+            // Encontrar todas as mídias associadas à empresa
+            const medias = await Media.find({ empresa: empresa._id }).sort({ date: "desc" });
 
-            if (media) {
-                
-                console.log(media);
+            for (const media of medias) {
+                console.log(media); // Mostra cada media encontrada para a empresa
                 console.log(empresa.verificado);
-                if (parseFloat(media.valor) < 3 && empresa.verificado == false && parseFloat(media.valor) != NaN) {
+                if (parseFloat(media.valor) < 3 && empresa.verificado === false && !isNaN(parseFloat(media.valor))) {
                     const mailOptions = {
                         from: 'jpplayrucoy@gmail.com',
                         to: 'joaopdiasventura@gmail.com',
@@ -86,7 +83,6 @@ input.get("/empresas", async (req, res) => {
         console.error(error);
     }
 });
-
 
 input.get("/info", (req, res) => {
     res.render("info");
