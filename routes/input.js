@@ -54,7 +54,11 @@ input.get("/empresas", async (req, res) => {
             }
 
             Media.find().then((medias) => {
-                console.log(medias)
+                for (let i = 0, i <= medias.length, i++){
+                    if(medias[i].empresa == empresa._id){
+                        console.log(medias[i])
+                    }
+                }
             })
             
             const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
