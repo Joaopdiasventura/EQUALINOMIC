@@ -24,10 +24,10 @@ input.get("/", (req, res) => {
 
 input.get("/empresas", async (req, res) => {
     try {
-        const empresas = await Empresa.find();
+        const empresas = await Empresa.find().sort({ date: "desc" });
 
         for (const empresa of empresas) {
-            const funcionarios = await Funcionario.find();
+            const funcionarios = await Funcionario.find().sort({ date: "desc" });
 
             let quantidade = 0;
             for (const funcionario of funcionarios) {
@@ -49,7 +49,7 @@ input.get("/empresas", async (req, res) => {
             }
         
 
-            const media = await Media.findOne({ empresa: empresa._id }).sort({ data: -1 });
+            const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
 
             if (media) {
                 console.log(parseFloat(media.valor));
