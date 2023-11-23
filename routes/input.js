@@ -24,6 +24,9 @@ input.get("/", (req, res) => {
 
 input.get("/empresas", async (req, res) => {
     try {
+
+        Media.deleteMany();
+        
         const empresas = await Empresa.find().sort({ date: "desc" });
 
         for (const empresa of empresas) {
