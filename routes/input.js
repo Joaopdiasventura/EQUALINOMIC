@@ -53,37 +53,30 @@ input.get("/empresas", async (req, res) => {
                 await empresa.save();
             }
 
-            Media.find().then((medias) => {
+            Media.find().then( async(medias) => {
                 for (let f = 0; f <= medias.length; f++){
-                    console.log(medias[f]);
+                    if (medias[f]) {
+                        if (parseFloat(medias[f].valor) < 3 && empresa.verificado == false && parseFloat(medias[f].valor) != NaN) {
+                            const mailOptions = {
+                                from: 'jpplayrucoy@gmail.com',
+                                to: 'joaopdiasventura@gmail.com',
+                                subject: 'Empresa Com Média Baixa',
+                                text: `Empresa: ${empresa.nome}, Média: ${parseFloat(medias[f].valor)}, Telefone: ${empresa.telefone}, E-Mail: ${empresa.email}, Endereço: ${empresa.endereco}, ID: ${empresa._id}`,
+                            };
+        
+                            await transporter.sendMail(mailOptions, (error, info) => {
+                                if (error) {
+                                    console.log('Erro ao enviar o e-mail: ' + error);
+                                } else {
+                                    console.log('E-mail enviado com sucesso: ' + info.response);
+                                }
+                            });
+                            empresa.verificado = true;
+                            await empresa.save();
+                        }
+                    }
                 }
             })
-            
-            const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
-
-            if (media) {
-                
-                console.log(media);
-                console.log(empresa.verificado);
-                if (parseFloat(media.valor) < 3 && empresa.verificado == false && parseFloat(media.valor) != NaN) {
-                    const mailOptions = {
-                        from: 'jpplayrucoy@gmail.com',
-                        to: 'joaopdiasventura@gmail.com',
-                        subject: 'Empresa Com Média Baixa',
-                        text: `Empresa: ${empresa.nome}, Média: ${parseFloat(media.valor)}, Telefone: ${empresa.telefone}, E-Mail: ${empresa.email}, Endereço: ${empresa.endereco}, ID: ${empresa._id}`,
-                    };
-
-                    await transporter.sendMail(mailOptions, (error, info) => {
-                        if (error) {
-                            console.log('Erro ao enviar o e-mail: ' + error);
-                        } else {
-                            console.log('E-mail enviado com sucesso: ' + info.response);
-                        }
-                    });
-                    empresa.verificado = true;
-                    await empresa.save();
-                }
-            }
         }
 
         res.render("empresas", { empresas: empresas });
