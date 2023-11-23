@@ -1,0 +1,98 @@
+{{#each erros}}
+
+<div class="alert alert-danger">{{mensagem}}</div>
+
+{{/each}}
+
+<h1>Avalie a empresa em que trabalha:</h1>
+<small>(1 - muito ruim | 5 - muito bom/boa)</small>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <form action="/avaliar" method="post">
+            <div class="card-body">
+                <label for="pergunta1">Como é o ambiente de trabalho? </label> <br>
+                <input type="radio" name="pergunta1" value="1" required> 1
+                <input type="radio" name="pergunta1" value="2" required> 2
+                <input type="radio" name="pergunta1" value="3" required> 3
+                <input type="radio" name="pergunta1" value="4" required> 4
+                <input type="radio" name="pergunta1" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta2">Como é a comunicação na empresa?</label> <br>
+                <input type="radio" name="pergunta2" value="1" required> 1
+                <input type="radio" name="pergunta2" value="2" required> 2
+                <input type="radio" name="pergunta2" value="3" required> 3
+                <input type="radio" name="pergunta2" value="4" required> 4
+                <input type="radio" name="pergunta2" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta3">Como é a convivencia dentro da empresa?</label>
+                <br>
+                <input type="radio" name="pergunta3" value="1" required> 1
+                <input type="radio" name="pergunta3" value="2" required> 2
+                <input type="radio" name="pergunta3" value="3" required> 3
+                <input type="radio" name="pergunta3" value="4" required> 4
+                <input type="radio" name="pergunta3" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta4">Como é a higienização no local de trabalho?</label>
+                <br>
+                <input type="radio" name="pergunta4" value="1" required> 1
+                <input type="radio" name="pergunta4" value="2" required> 2
+                <input type="radio" name="pergunta4" value="3" required> 3
+                <input type="radio" name="pergunta4" value="4" required> 4
+                <input type="radio" name="pergunta4" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta5">Como você são as oportunidades de promoção dentro da empresa?</label> <br>
+                <input type="radio" name="pergunta5" value="1" required> 1
+                <input type="radio" name="pergunta5" value="2" required> 2
+                <input type="radio" name="pergunta5" value="3" required> 3
+                <input type="radio" name="pergunta5" value="4" required> 4
+                <input type="radio" name="pergunta5" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta6">Como é o desenvolvimento economico da sua empresa?</label> <br>
+                <input type="radio" name="pergunta6" value="1" required> 1
+                <input type="radio" name="pergunta6" value="2" required> 2
+                <input type="radio" name="pergunta6" value="3" required> 3
+                <input type="radio" name="pergunta6" value="4" required> 4
+                <input type="radio" name="pergunta6" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta7">Como são as capacitações oferecidas na empresa?</label>
+                <br>
+                <input type="radio" name="pergunta7" value="1" required> 1
+                <input type="radio" name="pergunta7" value="2" required> 2
+                <input type="radio" name="pergunta7" value="3" required> 3
+                <input type="radio" name="pergunta7" value="4" required> 4
+                <input type="radio" name="pergunta7" value="5" required> 5 <br>
+            </div>
+
+            <div class="card-body">
+                <label for="pergunta8">Como é a qualidade salarial da sua empresa?</label>
+                <br>
+                <input type="radio" name="pergunta8" value="1" required> 1
+                <input type="radio" name="pergunta8" value="2" required> 2
+                <input type="radio" name="pergunta8" value="3" required> 3
+                <input type="radio" name="pergunta8" value="4" required> 4
+                <input type="radio" name="pergunta8" value="5" required> 5
+            </div>
+
+            <div class="card-body">
+
+                <h4>Digite seu CPF:</h4>
+                <input type="number" class="form-control" name="cpf" id="cpf" placeholder="Ex: 32165498701" required> <br>
+
+                <input type="submit" value="Avaliar" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+</div>

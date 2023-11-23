@@ -1,0 +1,71 @@
+{{#each erros}}
+
+<div class="alert alert-danger">{{mensagem}}</div>
+
+{{/each}}
+
+<h1>Cadastre sua empresa:</h1>
+<div class="card">
+    <div class="card-body">
+        <form action="/registrar/empresa" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" class="form-control" required>
+            <label for="cnpj">Cnpj:</label>
+            <input type="number" name="cnpj" id="cnpj" class="form-control" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+            <label for="telefone">Telefone:</label>
+            <input type="number" name="telefone" id="telefone" class="form-control" required>
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" id="endereco" class="form-control" required>
+            <label for="servico">Serviço Oferecido</label>
+            <select name="servico" id="servico" class="form-control">
+                <option value="Aulas Online">Aulas Online</option>
+                <option value="Consultoria">Consultoria</option>
+                <option value="Criação de Apresentações">Criação de Apresentações</option>
+                <option value="Desenvolvimento de Aplicativos">Desenvolvimento de Aplicativos</option>
+                <option value="Desenvolvimento de Cursos Online">Desenvolvimento de Cursos Online</option>
+                <option value="Desenvolvimento de Jogos Digitais">Desenvolvimento de Jogos Digitais</option>
+                <option value="Design Gráfico">Design Gráfico</option>
+                <option value="Design de Interiores">Design de Interiores</option>
+                <option value="Detalhamento de Carros">Detalhamento de Carros</option>
+                <option value="Serviços de Depilação a Laser">Serviços de Depilação a Laser</option>
+                <option value="Gerenciamento de Redes Sociais">Gerenciamento de Redes Sociais</option>
+                <option value="Serviços de Gravação">Serviços de Gravação</option>
+                <option value="Limpeza Residencial">Limpeza Residencial</option>
+                <option value="Locação de Equipamentos">Locação de Equipamentos</option>
+                <option value="Manutenção de Equipamentos Eletrônicos">Manutenção de Equipamentos Eletrônicos</option>
+                <option value="Manutenção de Piscinas">Manutenção de Piscinas</option>
+                <option value="Marketing Digital">Marketing Digital</option>
+                <option value="Serviços de Modelagem 3D">Serviços de Modelagem 3D</option>
+                <option value="Organização de Casamentos">Organização de Casamentos</option>
+                <option value="Organização de Mudanças Residenciais">Organização de Mudanças Residenciais</option>
+                <option value="Personalização de Roupas e Acessórios">Personalização de Roupas e Acessórios</option>
+                <option value="Planejamento de Eventos">Planejamento de Eventos</option>
+                <option value="Planejamento Financeiro Pessoal">Planejamento Financeiro Pessoal</option>
+                <option value="Planejamento de Viagens">Planejamento de Viagens</option>
+                <option value="Produção de Vídeos">Produção de Vídeos</option>
+                <option value="Serviços de Quiropraxia">Serviços de Quiropraxia</option>
+                <option value="Consultoria de Recursos Humanos">Consultoria de Recursos Humanos</option>
+                <option value="Redação de Conteúdo">Redação de Conteúdo</option>
+                <option value="Redação Publicitária">Redação Publicitária</option>
+                <option value="Serviços de Segurança Cibernética">Serviços de Segurança Cibernética</option>
+                <option value="Serviços Contábeis">Serviços Contábeis</option>
+                <option value="Serviços Fotográficos">Serviços Fotográficos</option>
+                <option value="Serviços Jurídicos">Serviços Jurídicos</option>
+                <option value="Serviços de Paisagismo">Serviços de Paisagismo</option>
+                <option value="Soluções para E-commerce">Soluções para E-commerce</option>
+                <option value="Treinamento de Habilidades de Comunicação">Treinamento de Habilidades de Comunicação</option>
+                <option value="Treinamento Fitness">Treinamento Fitness</option>
+                <option value="Tradução de Idiomas">Tradução de Idiomas</option>
+                <option value="Serviços de Tradução Juramentada">Serviços de Tradução Juramentada</option>
+                <option value="Serviços de Tradução Técnica">Serviços de Tradução Técnica</option>
+            </select>
+            <label for="chaveg">Senha gerenciadora:</label>
+            <input type="text" name="chaveg" id="chaveg" class="form-control" required>
+            <label for="chavef">Senha funcionária:</label>
+            <input type="text" name="chavef" id="chavef" class="form-control" required> <br>
+            <input type="submit" class="btn btn-success">
+        </form>
+    </div>
+</div>

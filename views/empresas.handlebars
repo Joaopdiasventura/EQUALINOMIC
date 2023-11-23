@@ -1,0 +1,19 @@
+<h1>Gostaria de participar dessa iniciativa?</h1>
+<small>Clique no botão para cadastrar sua empresa</small> <br> 
+<a href="/registrar/empresa" ><button class="btn btn-success mt-2">ADICIONAR SUA EMPRESA</button></a>
+
+<hr>
+
+{{#each empresas}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h2>{{nome}}</h2>
+        <p>Fornece {{servico}}</p>
+        <p>Contato: {{telefone}}</p>
+        <p>{{media}}</p>
+        <a href="/funcionarios/{{_id}}"><button class="btn btn-success">VER FUNCIONÁRIOS</button></a>
+    </div>
+</div>
+
+{{/each}}

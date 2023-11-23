@@ -1,0 +1,39 @@
+{{#each erros}}
+
+<div class="alert alert-danger">{{mensagem}}</div>
+
+{{/each}}
+
+<h1>Registre-se na sua empresa</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/registrar/funcionario" method="post" >
+            <Label for="nome">Nome:</Label>
+            <input type="text" class="form-control" name="nome" id="nome" required>
+            <label for="cpf">CPF:</label>
+            <input type="number" class="form-control" name="cpf" id="cpf" placeholder="Ex: 32165498701" required>
+            <label for="telefone">Telefone:</label>
+            <input type="number" class="form-control" name="telefone" id="telefone" placeholder="Ex: 11940028922" required>
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" id="sexo" class="form-control">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+            <label for="empresa">Empresa:</label>
+            <select name="empresa" id="empresa" class="form-control">
+                {{#each empresas}}
+                    <option value="{{_id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+            <label for="cargo">Cargo:</label>
+            <input type="text" class="form-control" name="cargo" id="cargo" required>
+            <label for="salario">Salário:</label>
+            <input type="number" class="form-control" name="salario" id="salario" required>
+            <label for="chave">Chave funcionária:</label>
+            <input type="text" class="form-control" name="chavef" id="chavef" required> <br>
+            <input type="submit" class="btn btn-success" value="Cadastrar">
+        </form>
+    </div>
+</div>

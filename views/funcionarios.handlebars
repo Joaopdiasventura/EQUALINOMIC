@@ -1,0 +1,39 @@
+{{#each erros}}
+
+<div class="alert alert-danger">{{menssagem}}</div>
+
+{{/each}}
+
+{{#if gerente}}
+
+{{#each funcionarios}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h2>Nome: {{nome}}</h2>
+        <p>CPF: {{cpf}}</p>
+        <p>Contato: {{telefone}}</p>
+        <p>Sexo: {{sexo}}</p>
+        <p>Salário: R${{salario}}</p>
+    </div>
+</div>
+
+{{else}}
+
+<h2>NENHUM FUNCIONÁRIO REGISTRADO NA EMPRESA</h2>
+
+{{/each}}
+
+{{else}}
+
+<div class="card">
+    <div class="card-body">
+        <form action="" method="post">
+            <h1>Digite a chave de gerente:</h1>
+            <input type="password" name="chaveg" id="chaveg" class="form-control" required> <br>
+            <input type="submit" value="VERIIFCAR" class="btn btn-success">
+        </form>
+    </div>
+</div>
+
+{{/if}}
