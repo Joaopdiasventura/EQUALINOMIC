@@ -56,7 +56,7 @@ input.get("/empresas", async (req, res) => {
             Media.find().then( async(medias) => {
                 for (let f = 0; f <= medias.length; f++){
                     if (medias[f]) {
-                        if (parseFloat(medias[f].valor) < 3 && empresa.verificado == false && parseFloat(medias[f].valor) != NaN) {
+                        if (parseFloat(medias[f].valor) < 3 && empresa.verificado == false && parseFloat(medias[f].valor) != NaN && empresa.media != `Nenhuma média registrada...`) {
                             const mailOptions = {
                                 from: 'jpplayrucoy@gmail.com',
                                 to: 'joaopdiasventura@gmail.com',
