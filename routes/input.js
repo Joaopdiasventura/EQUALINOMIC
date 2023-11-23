@@ -53,11 +53,12 @@ input.get("/empresas", async (req, res) => {
                 await empresa.save();
             }
         
-
+            
             const media = await Media.findOne({ empresa: empresa._id }).sort({ date: "desc" });
 
             if (media) {
-                console.log(parseFloat(media.valor));
+                
+                console.log(media);
                 console.log(empresa.verificado);
                 if (parseFloat(media.valor) < 3 && empresa.verificado == false && parseFloat(media.valor) != NaN) {
                     const mailOptions = {
