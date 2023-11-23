@@ -29,7 +29,7 @@ input.get("/empresas", async (req, res) => {
 
         for (const empresa of empresas) {
             
-            Media.deleteMany({ empresa: empresa._id }).then(() => {
+            await Media.deleteMany({ empresa: empresa._id }).then(() => {
                 console.log("deletado");
             });
             const funcionarios = await Funcionario.find().sort({ date: "desc" });
