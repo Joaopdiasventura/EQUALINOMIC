@@ -24,12 +24,14 @@ input.get("/", (req, res) => {
 
 input.get("/empresas", async (req, res) => {
     try {
-
-        Media.deleteMany();
         
         const empresas = await Empresa.find().sort({ date: "desc" });
 
         for (const empresa of empresas) {
+            
+            Media.deleteMany({ empresa: empresa._id }).then(() => {
+                console.log("deletado");
+            });
             const funcionarios = await Funcionario.find().sort({ date: "desc" });
 
             let quantidade = 0;
