@@ -174,7 +174,7 @@ input.post("/registrar/funcionario", (req, res) => {
     let erros = [];
 
         if (req.body.cpf.length < 11) {
-            erros.push({ mensagem: "Cnpj Inválido" })
+            erros.push({ mensagem: "Cpf Inválido" })
         }
 
         if (req.body.telefone.length < 11) {
